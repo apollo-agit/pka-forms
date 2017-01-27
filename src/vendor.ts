@@ -22,4 +22,6 @@ import 'immutable';
 //HammerJS
 import 'hammerjs';
 
+import 'angular2-uuid';
+
 

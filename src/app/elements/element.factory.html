@@ -1,0 +1,8 @@
+<div [ngSwitch]="element.type">
+    <md-input *ngSwitchCase="'text_input'" placeholder="{{element.label}}">
+        <span md-prefix>
+	          <i class="material-icons app-input-icon">motorcycle</i>
+	          &nbsp;
+	        </span>
+    </md-input>
+</div>

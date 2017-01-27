@@ -1,0 +1,6 @@
+<h2>{{form?.title}}</h2>
+<h4>{{form?.description}}</h4>
+
+<div *ngFor="let elmnt of form?.formComponents">
+	<element-factory [element]=elmnt></element-factory>
+</div>

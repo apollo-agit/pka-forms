@@ -6,11 +6,19 @@
 
 @import '~@angular/material/toolbar/toolbar.scss';
 @import '~@angular/material/button/button.scss';
+@import '~@angular/material/card/card.scss';
 
 @include md-core();
 
 @include angular-material-theme($theme);
 
+md-card {
+  margin: 8px;
+}
+
+.app-content {
+  min-height: 500px;
+}
 
 .app-icon-button {
   box-shadow: none;

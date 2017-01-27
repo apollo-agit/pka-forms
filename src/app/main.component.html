@@ -1,14 +1,17 @@
 <md-sidenav-layout [class.m2app-dark]="isDarkTheme">
     <md-sidenav #sidenav mode="side" class="app-sidenav">
-        Sidenav
+        <h3>PKA Form Navigation</h3>
+        <ul>
+            <li><a routerLink="/admin">Application Forms</a></li>
+        </ul>
     </md-sidenav>
     <md-toolbar color="primary">
         <button class="app-icon-button" (click)="sidenav.toggle()">
             <i class="material-icons app-toolbar-menu">menu</i>
         </button>
-        Angular Material2 Example App
+        PKA Forms
     </md-toolbar>
     <div class="app-content">
-        <h2>My Main Page</h2>
+        <router-outlet></router-outlet>
     </div>
 </md-sidenav-layout>

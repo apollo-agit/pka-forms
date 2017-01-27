@@ -10,6 +10,9 @@ import '@angular/common';
 import '@angular/http';
 import '@angular/router';
 
+// Material Design
+import '@angular/material';
+
 // RxJS
 import 'rxjs';
 

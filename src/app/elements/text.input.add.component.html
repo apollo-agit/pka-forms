@@ -1,14 +1,14 @@
 <md-card class="md2 md-card element-card">
     <md-card-content>
-        <md-input placeholder="Text Input Element">
+        <md-input placeholder="{{placeholder}}">
             <span md-prefix>
-          <i class="material-icons app-input-icon">motorcycle</i>
+          <i class="material-icons app-input-icon">{{icon}}</i>
           &nbsp;
         </span>
         </md-input>
         <md-card-actions>
-            <button md-fab (click)="onClickAddTextInput()">
-                <md-icon>add circle</md-icon>
+            <button md-fab (click)="onClickEditInput()">
+                <md-icon>{{buttonicon}}</md-icon>
             </button>
         </md-card-actions>
     </md-card-content>

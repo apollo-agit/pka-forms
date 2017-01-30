@@ -7,7 +7,5 @@ import { FormComponents } from '../admin/pka.form.model';
 })
 
 export class ElementFactory {
-
 	@Input() element: FormComponents;
-
 }

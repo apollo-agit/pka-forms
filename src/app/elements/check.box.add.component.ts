@@ -4,32 +4,31 @@ import { PkaFormModel, FormComponents } from '../admin/pka.form.model';
 import { BaseElementComponent } from './base.element.component';
 
 @Component({
-  selector: 'text-input-add',
-  templateUrl: './text.input.add.component.html'
+  selector: 'check-box-add',
+  templateUrl: './check.box.add.component.html'
 })
 
-export class TextInputAddComponent extends BaseElementComponent implements AfterViewInit {
+export class CheckBoxAddComponent extends BaseElementComponent implements AfterViewInit {
 
-	placeholder = "Text Input Element";
-	icon = "motorcycles";
+	label = "Checkbox Elements";
 	buttonicon = "add circle";
 
-	private readonly _label = "Text Input";
-	private readonly _type = "text_input";
+	private readonly _label = "New Checkbox";
+	private readonly _type = "check-box";
 
 	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
-		super(localStoragereducer);	
+		super(localStoragereducer);
 
 		if(this.comp) {
-			this.placeholder = this.comp.label;
+			this.label = this.comp.label;
 			this.buttonicon = "edit circle";
 		} else {
 			this.comp = {label: this._label, type: this._type, sequence: 1}
-		}	
+		}
 	}
 
 	ngAfterViewInit() {		
-		
-	}	
+
+	}
 
 }

@@ -9,7 +9,9 @@ import { LocalStorageService } from '../common/localstorage.service';
 import { FormEditComponent } from './form.edit.component';
 import { ElementFactory } from '../elements/element.factory';
 import { TextInputAddComponent } from '../elements/text.input.add.component';
-import { OptionListComponent } from '../elements/option.list.add.component';
+import { OptionListAddComponent } from '../elements/option.list.add.component';
+import { TextAreaAddComponent } from '../elements/text.area.add.component';
+import { CheckBoxAddComponent } from '../elements/check.box.add.component';
 
 
 @NgModule({
@@ -22,6 +24,9 @@ import { OptionListComponent } from '../elements/option.list.add.component';
     AdminViewComponent,
     ElementSelectionComponent,
     TextInputAddComponent,
+    OptionListAddComponent,
+    TextAreaAddComponent,
+    CheckBoxAddComponent,
     FormEditComponent,
     ElementFactory
   ],

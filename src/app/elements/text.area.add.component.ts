@@ -4,18 +4,18 @@ import { PkaFormModel, FormComponents } from '../admin/pka.form.model';
 import { BaseElementComponent } from './base.element.component';
 
 @Component({
-  selector: 'text-input-add',
-  templateUrl: './text.input.add.component.html'
+  selector: 'text-area-add',
+  templateUrl: './text.area.add.component.html'
 })
 
-export class TextInputAddComponent extends BaseElementComponent implements AfterViewInit {
+export class TextAreaAddComponent extends BaseElementComponent implements AfterViewInit {
 
-	placeholder = "Text Input Element";
+	placeholder = "Text Area Element";
 	icon = "motorcycles";
 	buttonicon = "add circle";
 
-	private readonly _label = "Text Input";
-	private readonly _type = "text_input";
+	private readonly _label = "Text Area";
+	private readonly _type = "text_area";
 
 	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
 		super(localStoragereducer);	

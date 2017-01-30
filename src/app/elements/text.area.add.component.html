@@ -1,9 +1,11 @@
 <md-card class="md2 md-card element-card">
     <md-card-content>
-        <p>{{label}}</p>
-        <md-radio-button name="symbol">Option</md-radio-button>
-        <md-radio-button name="symbol">List</md-radio-button>
-        <md-radio-button name="symbol">Element</md-radio-button>
+        <md-textarea width="250px" height="125px" placeholder="{{placeholder}}">
+            <span md-prefix>
+          <i class="material-icons app-input-icon">{{icon}}</i>
+          &nbsp;
+        </span>
+        </md-textarea>
         <md-card-actions>
             <button md-fab (click)="onClickEditInput()">
                 <md-icon>{{buttonicon}}</md-icon>

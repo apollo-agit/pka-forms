@@ -1,8 +1,6 @@
 <div [ngSwitch]="element.type">
-    <md-input *ngSwitchCase="'text_input'" placeholder="{{element.label}}">
-        <span md-prefix>
-	          <i class="material-icons app-input-icon">motorcycle</i>
-	          &nbsp;
-	        </span>
-    </md-input>
+    <text-area-add *ngSwitchCase="'text_area'" [comp]="element"></text-area-add>
+    <text-input-add *ngSwitchCase="'text_input'" [comp]="element"></text-input-add>
+    <option-list-add *ngSwitchCase="'options'" [comp]="element"></option-list-add>
+    <check-box-add *ngSwitchCase="'check-box'" [comp]="element"></check-box-add>
 </div>

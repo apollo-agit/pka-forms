@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { appRoutes, appRoutingProviders } from '../common/app.routes';
 import { AdminViewComponent } from './admin.view.component';
@@ -12,11 +13,13 @@ import { TextInputAddComponent } from '../elements/text.input.add.component';
 import { OptionListAddComponent } from '../elements/option.list.add.component';
 import { TextAreaAddComponent } from '../elements/text.area.add.component';
 import { CheckBoxAddComponent } from '../elements/check.box.add.component';
+import { TextInputDialogComponent } from '../elements/text.input.dialog.component';
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     MaterialModule.forRoot(),
     appRoutes
   ],
@@ -28,8 +31,12 @@ import { CheckBoxAddComponent } from '../elements/check.box.add.component';
     TextAreaAddComponent,
     CheckBoxAddComponent,
     FormEditComponent,
+    TextInputDialogComponent,
     ElementFactory
   ],
+    entryComponents: [
+      TextInputDialogComponent
+    ],
   providers: [
     appRoutingProviders,
     { provide: 'key', useValue: 'pkaforms' },

@@ -1,19 +1,15 @@
-<h2>Form Creation Page</h2>
-<div class="grid-container">
-    <div class="grid-2">
-        <md-card class="container-card">
-            <md-card-title>Available Components</md-card-title>
-            <md-card-content>
-                <element-selection></element-selection>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div class="grid-2">
-        <md-card class="container-card">
-            <md-card-title>Assigned Components</md-card-title>
-            <md-card-content>
-                <form-edit></form-edit>
-            </md-card-content>
-        </md-card>
-    </div>
-</div>
+<h2 class="page-title">Form Creation</h2>
+<md-tab-group>
+    <md-tab label="Edit">
+        <div class="tab-container">
+            <form-edit></form-edit>
+        </div>
+    </md-tab>
+    <md-tab label="View">
+        <h1>Form</h1>
+    </md-tab>
+    <md-tab label="Add">
+        <div class="tab-container">
+        </div>
+    </md-tab>
+</md-tab-group>

@@ -1,15 +1,11 @@
-<md-card class="md2 md-card element-card">
-    <md-card-content>
-        <md-input placeholder="{{placeholder}}">
-            <span md-prefix>
+<md-input #{{elementid}} placeholder="{{placeholder}}" maxlength="{{size}}">
+    <span md-prefix>
           <i class="material-icons app-input-icon">{{icon}}</i>
           &nbsp;
         </span>
-        </md-input>
-        <md-card-actions>
-            <button md-fab (click)="onClickEditInput()">
-                <md-icon>{{buttonicon}}</md-icon>
-            </button>
-        </md-card-actions>
-    </md-card-content>
-</md-card>
+</md-input>
+<md-card-actions>
+    <button md-mini-fab (click)="onClickEditInput()">
+        <md-icon>{{buttonicon}}</md-icon>
+    </button>
+</md-card-actions>

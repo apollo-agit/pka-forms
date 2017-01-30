@@ -20,11 +20,4 @@ export abstract class BaseElementComponent {
 		});
 	}
 
-	onClickEditInput() {
-		this._form.formComponents.push(this.comp);
-		this._localStoragereducer.modify(this._form, (value) => {
-			return value;
-		});
-	}
-
 }

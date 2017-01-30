@@ -1,6 +1,30 @@
+<button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+</button>
+<md-menu #menu="mdMenu">
+    <button md-menu-item (click)="onTextBoxAdd()">
+        <md-icon>short_text</md-icon>
+        <span> Add Text Box </span>
+    </button>
+    <button md-menu-item>
+        <md-icon>wrap_text</md-icon>
+        <span> Add Text Area </span>
+    </button>
+    <button md-menu-item>
+        <md-icon>check_box</md-icon>
+        <span> Add Check Boxes </span>
+    </button>
+    <button md-menu-item>
+        <md-icon>radio_button_checked</md-icon>
+        <span> Add Radio Buttons </span>
+    </button>
+</md-menu>
 <h2>{{form?.title}}</h2>
 <h4>{{form?.description}}</h4>
-
 <div *ngFor="let elmnt of form?.formComponents">
-	<element-factory [element]=elmnt></element-factory>
+    <md-card class="md2 md-card element-card">
+        <md-card-content>
+            <element-factory [element]=elmnt></element-factory>
+        </md-card-content>
+    </md-card>
 </div>

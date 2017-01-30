@@ -1,0 +1,19 @@
+<div>
+    <form (ngSubmit)="onSubmit()" #textinputform="ngForm">
+      <div class="form-group">
+            <md-input placeholder="Text Input Name" id="name" required class="form-control" name="name" [(ngModel)]="model.name"></md-input>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Text Input Label" id="label" required class="form-control" name="label" [(ngModel)]="model.label"></md-input>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Input Size" id="size" required class="form-control" name="size" [(ngModel)]="model.size"></md-input>
+        </div>
+        <div class="form-group">
+            <md-select [(ngModel)]="model.texticon" id="texticon" name="texticon">
+                <md-option *ngFor="let i of icons" [value]="i">{{i}}</md-option>
+            </md-select>
+        </div>
+        <button md-raised-button type="Submit" name="btnSubmit" class="btn btn-default">Submit</button>
+    </form>
+</div>

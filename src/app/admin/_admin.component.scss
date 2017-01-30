@@ -1,9 +1,22 @@
-.container-card {
-  margin: 8px;
+.page-title {
+    background: $primary-base-color;
+    text-align: center;
+    color: #ffffff;
+    padding: 8px;
+    margin: 0;
+}
+
+.tab-container {
+    background: $primary-base-color;
+    padding: 8px;
+    .tab-title {
+        text-align: center;
+        color: #ffffff;
+        padding: 8px;
+    }
 }
 
 .element-card {
-	min-width: 200px;
-	margin-bottom: 8px;
+    min-width: 200px;
+    margin: 8px 0 8px 0;
 }
-

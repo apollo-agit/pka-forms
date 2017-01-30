@@ -8,7 +8,10 @@ export interface PkaFormModel extends AbstractModel {
 }
 
 export interface FormComponents {
+	name?: string,
 	label: string,
 	type: string,
+	size?: number,
+	texticon?: string,	
 	sequence: number
 }

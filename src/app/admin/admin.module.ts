@@ -6,9 +6,10 @@ import { AdminViewComponent } from './admin.view.component';
 import { ElementSelectionComponent } from './element.selection.component';
 import { FluxReducer } from '../common/flux.reducer';
 import { LocalStorageService } from '../common/localstorage.service';
-import { TextInputAddComponent } from '../elements/text.input.add.component';
 import { FormEditComponent } from './form.edit.component';
 import { ElementFactory } from '../elements/element.factory';
+import { TextInputAddComponent } from '../elements/text.input.add.component';
+import { OptionListComponent } from '../elements/option.list.add.component';
 
 
 @NgModule({

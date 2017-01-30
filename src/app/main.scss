@@ -1,20 +1,24 @@
 /* 
 * main sass 
 */
+
 @import '~@angular/material/core/theming/all-theme';
 @import './common/style.variables';
 
 @import '~@angular/material/toolbar/toolbar.scss';
 @import '~@angular/material/button/button.scss';
 @import '~@angular/material/card/card.scss';
+@import '~@angular/material/grid-list/grid-list.scss';
+
+@import './common/grid.system';
+@import './admin/admin.component.scss';
+
+@include grid-system();
 
 @include md-core();
 
 @include angular-material-theme($theme);
 
-md-card {
-  margin: 8px;
-}
 
 .app-content {
   min-height: 500px;

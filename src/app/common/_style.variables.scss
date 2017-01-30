@@ -1,7 +1,14 @@
 // Material Theming
-
-
-// Define a theme.
 $primary: md-palette($md-deep-purple);
 $accent:  md-palette($md-amber, A200, A100, A400);
 $theme: md-light-theme($primary, $accent);
+
+//Grid System
+$grid-padding: 0.3em;
+$grid-small: 30em; 
+$grid-medium: 50em; 
+$grid-large: 68.750em; 
+$grid-column-start: 1;
+$grid-column-end: 12;
+$grid-container-width: 100%;
+$grid-percentage-widths: 25, 40, 60, 75;

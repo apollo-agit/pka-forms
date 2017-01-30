@@ -1,0 +1,105 @@
+// Simplified Grid System for App
+
+$grid-padding: 0.3em !default;
+$grid-small: 30em !default; 
+$grid-medium: 50em; 
+$grid-large: 68.750em !default; 
+$grid-column-start: 1 !default;
+$grid-column-end: 12 !default;
+$grid-container-width: 100% !default;
+$grid-percentage-widths: 25, 40, 60, 75 !default;
+
+
+@mixin grid-system ($grid-padding: $grid-padding,
+$small: $grid-small,
+$medium: $grid-medium, 
+$large: $grid-large,
+$column-start: $grid-column-start,
+$column-end: $grid-column-end,
+$container-width: $grid-container-width,
+$percentage-widths: $grid-percentage-widths) {
+
+	$full:              100%;
+	$half:              100% / 2;
+
+	* {
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
+	}
+
+	.grid-container {
+		margin: 0 auto;
+		max-width: $container-width;
+
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
+
+	[class*='grid-'] {
+    	float: left;
+    	padding: $grid-padding;
+	}
+
+	@for $i from $column-start through $column-end {
+    	.grid-#{$i} {
+        	width: $full / $i;
+    	}
+	}
+ 
+	@each $i in $percentage-widths {
+    	.grid-#{$i} {
+        	width: percentage($i / 100);
+    	}
+	}
+
+	// Mobile
+	@media (max-width: $small) {
+	    @for $i from $column-start through $column-end {
+	        .grid-#{$i} {
+	            width: $full
+	        }
+	    }
+	}
+
+	// Portrait Tablet
+	@media (min-width: $small) and (max-width: $medium) {
+	    .grid-4,
+	    .grid-6,
+	    .grid-8,
+	    .grid-10,
+	    .grid-12 {
+	        width: $half;
+	    }
+
+	    .grid-1,
+	    .grid-2,
+	    .grid-3,
+	    .grid-5,
+	    .grid-7,
+	    .grid-9,
+	    .grid-11 {
+	        width: $full;
+	    }
+	}
+
+	// Landscape Tablet
+	@media (min-width: $medium) and (max-width: $large) {
+	    .grid-2 {
+	        width: $full;
+	    }
+	}
+
+}
+
+
+
+
+
+
+
+
+

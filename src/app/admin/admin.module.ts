@@ -9,11 +9,14 @@ import { FluxReducer } from '../common/flux.reducer';
 import { LocalStorageService } from '../common/localstorage.service';
 import { FormEditComponent } from './form.edit.component';
 import { ElementFactory } from '../elements/element.factory';
-import { TextInputAddComponent } from '../elements/text.input.add.component';
-import { OptionListAddComponent } from '../elements/option.list.add.component';
-import { TextAreaAddComponent } from '../elements/text.area.add.component';
-import { CheckBoxAddComponent } from '../elements/check.box.add.component';
-import { TextInputDialogComponent } from '../elements/text.input.dialog.component';
+import { TextInputAddComponent } from '../elements/textinput/text.input.add.component';
+import { OptionListAddComponent } from '../elements/optionlist/option.list.add.component';
+import { TextAreaAddComponent } from '../elements/textarea/text.area.add.component';
+import { CheckBoxAddComponent } from '../elements/checkbox/check.box.add.component';
+import { TextInputDialog } from '../elements/textinput/text.input.dialog.component';
+import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
+import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
+import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
 
 
 @NgModule({
@@ -31,11 +34,17 @@ import { TextInputDialogComponent } from '../elements/text.input.dialog.componen
     TextAreaAddComponent,
     CheckBoxAddComponent,
     FormEditComponent,
-    TextInputDialogComponent,
+    TextInputDialog,
+    TextAreaDialog,
+    CheckBoxDialog,
+    OptionListDialog,
     ElementFactory
   ],
     entryComponents: [
-      TextInputDialogComponent
+      TextInputDialog,
+      TextAreaDialog,
+      CheckBoxDialog,
+      OptionListDialog
     ],
   providers: [
     appRoutingProviders,

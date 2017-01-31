@@ -1,0 +1,11 @@
+<h6>{{label}}</h6>
+<ul>
+    <li class="options-list" *ngFor="let opt of options">
+        <md-radio-button name="{{opt}}">{{opt}}</md-radio-button>
+    </li>
+</ul>
+<md-card-actions>
+    <button md-mini-fab (click)="onClickEditInput()">
+        <md-icon>{{buttonicon}}</md-icon>
+    </button>
+</md-card-actions>

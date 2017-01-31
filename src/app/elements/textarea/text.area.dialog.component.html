@@ -1,0 +1,28 @@
+<div>
+    <form (ngSubmit)="onSubmit()" #textareaform="ngForm">
+        <div class="form-group">
+            <md-input placeholder="Text Area Name" id="name" required class="form-control" name="name" [(ngModel)]="model.name"></md-input>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Text Area Label" id="label" required class="form-control" name="label" [(ngModel)]="model.label"></md-input>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Area Text Size" id="size" required class="form-control" name="size" [(ngModel)]="model.size"></md-input>
+        </div>
+        <div class="form-group">
+            <md-select [(ngModel)]="model.texticon" id="texticon" name="texticon">
+                <md-option *ngFor="let i of icons" [value]="i">{{i}}</md-option>
+            </md-select>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Width" id="width" required class="form-control" name="width" [(ngModel)]="model.width"></md-input>
+        </div>
+        <div class="form-group">
+            <md-input placeholder="Heigth" id="heigth" required class="form-control" name="heigth" 
+            [(ngModel)]="model.heigth"></md-input>
+        </div>
+        <md-dialog-actions>
+            <button md-raised-button type="Submit" name="btnSubmit" class="btn btn-default">Submit</button>
+        </md-dialog-actions>
+    </form>
+</div>

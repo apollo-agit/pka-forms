@@ -4,10 +4,16 @@ import { PkaFormModel, FormComponents } from '../admin/pka.form.model';
 
 export abstract class BaseElementComponent {
 
-	protected _form: PkaFormModel;
 	@Input() comp: FormComponents;
-
+	
+	protected _form: PkaFormModel;
 	protected _localStoragereducer;
+
+	public elementid: string;
+	public size: number;
+	public placeholder: string;
+	
+	public buttonicon: string = "add circle";	
 
 	constructor(localStoragereducer: FluxReducer<PkaFormModel>) {
 

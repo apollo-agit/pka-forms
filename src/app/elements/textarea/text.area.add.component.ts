@@ -1,0 +1,37 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { FluxReducer } from '../../common/flux.reducer';
+import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { BaseElementComponent } from '../base.element.component';
+
+@Component({
+  selector: 'text-area-add',
+  templateUrl: './text.area.add.component.html'
+})
+
+export class TextAreaAddComponent extends BaseElementComponent implements OnInit {
+
+	public icon: string;
+	public width: number;
+	public height: number;
+
+	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
+		super(localStoragereducer);		
+	}
+
+	ngOnInit() {
+		if(this.comp) {
+			console.log(this.comp);
+			this.elementid = this.comp.name;
+			this.placeholder = this.comp.label;
+			this.icon = this.comp.texticon;
+			this.size = this.comp.size;
+			this.width = this.comp.width;
+			this.height = this.comp.height;
+		}
+	}		
+
+	onClickEditInput() {
+		
+	}
+
+}

@@ -1,7 +1,9 @@
-<h6>{{label}}</h6>
-<md-checkbox>Checked</md-checkbox>
-<md-checkbox>Box</md-checkbox>
-<md-checkbox>Element</md-checkbox>
+<h6>{{placeholder}}</h6>
+<ul>
+    <li *ngFor="let opt of options">
+        <md-checkbox>{{opt}}</md-checkbox>
+    </li>
+</ul>
 <md-card-actions>
     <button md-mini-fab (click)="onClickEditInput()">
         <md-icon>add circle</md-icon>

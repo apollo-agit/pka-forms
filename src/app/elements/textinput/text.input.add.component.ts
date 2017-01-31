@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FluxReducer } from '../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../admin/pka.form.model';
-import { BaseElementComponent } from './base.element.component';
+import { FluxReducer } from '../../common/flux.reducer';
+import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { BaseElementComponent } from '../base.element.component';
 
 @Component({
   selector: 'text-input-add',
@@ -10,14 +10,7 @@ import { BaseElementComponent } from './base.element.component';
 
 export class TextInputAddComponent extends BaseElementComponent implements OnInit {
 
-	elementid;
-	placeholder;
-	icon;
-	buttonicon;
-	size;
-
-	private readonly _label = "Text Input";
-	private readonly _type = "text_input";
+	public icon: string;	
 
 	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
 		super(localStoragereducer);	
@@ -28,9 +21,12 @@ export class TextInputAddComponent extends BaseElementComponent implements OnIni
 			this.elementid = this.comp.name;
 			this.placeholder = this.comp.label;
 			this.icon = this.comp.texticon;
-			this.buttonicon = "edit circle";
 			this.size = this.comp.size;
 		}
 	}	
+
+	onClickEditInput() {
+
+	}
 
 }

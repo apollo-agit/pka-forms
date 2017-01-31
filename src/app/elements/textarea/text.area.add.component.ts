@@ -14,10 +14,6 @@ export class TextAreaAddComponent extends BaseElementComponent implements OnInit
 	public width: number;
 	public height: number;
 
-	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
-		super(localStoragereducer);		
-	}
-
 	ngOnInit() {
 		if(this.comp) {
 			console.log(this.comp);

@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { Component, OnInit } from '@angular/core';
+import { FormComponents } from '../../admin/pka.form.model';
 import { BaseElementComponent } from '../base.element.component';
 
 @Component({
@@ -11,10 +10,6 @@ import { BaseElementComponent } from '../base.element.component';
 export class OptionListAddComponent extends BaseElementComponent implements OnInit {
 
 	options: Array<String>;
-
-	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
-		super(localStoragereducer);
-	}
 
 	ngOnInit() {
 		if(this.comp) {

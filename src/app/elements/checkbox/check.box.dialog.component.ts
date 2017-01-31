@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
+import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { FormComponents } from '../../admin/pka.form.model';
+import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
 
 
 @Component({
@@ -10,28 +10,32 @@ import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
 
 })
 
-export class CheckBoxDialog {
+export class CheckBoxDialog extends BaseElementDialog {
 
-	model: CheckBoxDialogInputModel;
-
-	constructor(public dialogRef: MdDialogRef<CheckBoxDialog>) {
-		let mycheckboxes = new Array<string>();
-		this.model = {name: '', label: '', options: mycheckboxes};
+	constructor(dialogRef: MdDialogRef<CheckBoxDialog>) {
+		let model = {name: '', label: '', options: new Array<string>()};
+		super(dialogRef, model);
 	}
 
-	onSubmit()  {
-		this.dialogRef.close(this.model);
+	formatComponent(result): FormComponents {
+		return {name: this.createId(result.name), label: result.label, 
+    			type: 'check-box', options: result.options, sequence: 1};
 	}
 
-	onEnter($event) { 
+	setBackingObject(comp?: FormComponents) {
+		let model = { name: comp.name, label: comp.label, options: comp.options};
+		this.model = model;
+	}
+
+
+	onAddOption($event) { 
+		let model = <CheckBoxDialogInputModel>this.model;
 		if($event.value)
-			this.model.options.push($event.value);
+			model.options.push($event.value);
 		$event.value = null;
 	}
 }
 
-export interface CheckBoxDialogInputModel {
-	name: string,
-	label: string,
+export interface CheckBoxDialogInputModel extends DialogInputModel {
 	options: Array<string>
 }

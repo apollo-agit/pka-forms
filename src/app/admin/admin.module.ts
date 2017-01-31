@@ -8,7 +8,6 @@ import { ElementSelectionComponent } from './element.selection.component';
 import { FluxReducer } from '../common/flux.reducer';
 import { LocalStorageService } from '../common/localstorage.service';
 import { FormEditComponent } from './form.edit.component';
-import { ElementFactory } from '../elements/element.factory';
 import { TextInputAddComponent } from '../elements/textinput/text.input.add.component';
 import { OptionListAddComponent } from '../elements/optionlist/option.list.add.component';
 import { TextAreaAddComponent } from '../elements/textarea/text.area.add.component';
@@ -37,8 +36,7 @@ import { OptionListDialog } from '../elements/optionlist/option.list.dialog.comp
     TextInputDialog,
     TextAreaDialog,
     CheckBoxDialog,
-    OptionListDialog,
-    ElementFactory
+    OptionListDialog
   ],
     entryComponents: [
       TextInputDialog,

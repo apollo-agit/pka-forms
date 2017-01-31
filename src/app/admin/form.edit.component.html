@@ -21,10 +21,15 @@
 </md-menu>
 <h2>{{form?.title}}</h2>
 <h4>{{form?.description}}</h4>
-<div *ngFor="let elmnt of form?.formComponents">
+<div *ngFor="let element of form.formComponents">
     <md-card class="md2 md-card element-card">
         <md-card-content>
-            <element-factory [element]=elmnt></element-factory>
+            <div [ngSwitch]="element.type">
+                <text-area-add *ngSwitchCase="'text-area'" [comp]="element" (change)="textAreaChange($event)"></text-area-add>
+                <text-input-add *ngSwitchCase="'text-input'" [comp]="element" (change)="textInputChange($event)"></text-input-add>
+                <option-list-add *ngSwitchCase="'option-list'" [comp]="element" (change)="optionListChange($event)"></option-list-add>
+                <check-box-add *ngSwitchCase="'check-box'" [comp]="element" (change)="checkBoxChange($event)"></check-box-add>
+            </div>
         </md-card-content>
     </md-card>
 </div>

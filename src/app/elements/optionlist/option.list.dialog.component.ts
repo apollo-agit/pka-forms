@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
+import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { FormComponents } from '../../admin/pka.form.model';
+import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
 
 
 @Component({
@@ -10,29 +10,31 @@ import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
 
 })
 
-export class OptionListDialog {
+export class OptionListDialog extends BaseElementDialog {
 
-	model: OptionListDialogInputModel;
-
-	constructor(public dialogRef: MdDialogRef<OptionListDialog>) {
-		let myoptions = new Array<string>();
-		this.model = {name: '', label: '', options: myoptions};
+	constructor(dialogRef: MdDialogRef<OptionListDialog>) {
+		let model = {name: '', label: '', options: new Array<string>()};
+		super(dialogRef, model);
 	}
 
-	onSubmit()  {
-		this.dialogRef.close(this.model);
+	formatComponent(result): FormComponents {
+		return {name: this.createId(result.name), label: result.label, 
+    			type: 'option-list', options: result.options, sequence: 1};
+	}
+
+	setBackingObject(comp?: FormComponents) {
+		let model = { name: comp.name, label: comp.label, options: comp.options};
+		this.model = model;
 	}
 
 	onAddOption($event) { 
-		console.log('addOption');
+		let model = <OptionListDialogInputModel>this.model;
 		if($event.value)
-			this.model.options.push($event.value);
+			model.options.push($event.value);
 		$event.value = null;
 	}
 }
 
-export interface OptionListDialogInputModel {
-	name: string,
-	label: string,
+export interface OptionListDialogInputModel extends DialogInputModel {
 	options: Array<string>
 }

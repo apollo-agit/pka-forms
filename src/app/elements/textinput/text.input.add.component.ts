@@ -12,10 +12,6 @@ export class TextInputAddComponent extends BaseElementComponent implements OnIni
 
 	public icon: string;	
 
-	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
-		super(localStoragereducer);	
-	}
-
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;
@@ -24,9 +20,5 @@ export class TextInputAddComponent extends BaseElementComponent implements OnIni
 			this.size = this.comp.size;
 		}
 	}	
-
-	onClickEditInput() {
-
-	}
 
 }

@@ -12,10 +12,6 @@ export class CheckBoxAddComponent extends BaseElementComponent implements OnInit
 
 	options: Array<String>;
 
-	constructor(@Inject('PKAFormStore') localStoragereducer: FluxReducer<PkaFormModel>) {
-		super(localStoragereducer);		
-	}
-
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;

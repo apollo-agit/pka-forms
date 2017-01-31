@@ -1,29 +1,21 @@
-import { Inject, Input } from '@angular/core';
-import { FluxReducer } from '../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../admin/pka.form.model';
+import { Inject, Input, Output, EventEmitter } from '@angular/core';
+import { FormComponents } from '../admin/pka.form.model';
 
 export abstract class BaseElementComponent {
 
 	@Input() comp: FormComponents;
+	@Output() change: EventEmitter<FormComponents> = new EventEmitter<FormComponents>();
 	
-	protected _form: PkaFormModel;
 	protected _localStoragereducer;
 
 	public elementid: string;
 	public size: number;
 	public placeholder: string;
 	
-	public buttonicon: string = "add circle";	
+	public addbuttonicon: string = "edit circle";	
+	public removebuttonicon: string = "remove circle"
 
-	constructor(localStoragereducer: FluxReducer<PkaFormModel>) {
-
-		this._localStoragereducer = localStoragereducer;
-
-		this._localStoragereducer.backingObject.subscribe(data => {
-			if (data) {
-				this._form = data[0];
-			}
-		});
+	onClickEditInput() {
+		this.change.emit(this.comp);
 	}
-
 }

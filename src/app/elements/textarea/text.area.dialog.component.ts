@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
+import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { FormComponents } from '../../admin/pka.form.model';
+import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
 
 
 @Component({
@@ -10,25 +10,28 @@ import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
 
 })
 
-export class TextAreaDialog {
+export class TextAreaDialog extends BaseElementDialog {
 
-	model: TextAreaDialogInputModel;
-
-	icons: Array<string> = new Array<string>('none', 'motorcycle', 'android', 'check_circle', 'credit_card');
-
-	constructor(public dialogRef: MdDialogRef<TextAreaDialog>) {
-
-		this.model = {name: '', label: '', size: 255, texticon: 'none', width: 250, height: 125};
+	constructor(dialogRef: MdDialogRef<TextAreaDialog>) {
+		let model = {name: '', label: '', size: 255, texticon: 'none', width: 250, height: 125}
+		super(dialogRef, model);
 	}
 
-	onSubmit()  {
-		this.dialogRef.close(this.model);
+	formatComponent(result): FormComponents {
+		return {name: this.createId(result.name), label: result.label, 
+    			type: 'text-area', texticon: result.texticon, 
+    			width: result.width, height: result.heigth, sequence: 1}
 	}
+
+	setBackingObject(comp?: FormComponents) {
+		let model = { name: comp.name , label: comp.label, size: comp.size, texticon: comp.texticon,
+			width: comp.width, height: comp.height};
+		this.model = model;
+	}
+
 }
 
-export interface TextAreaDialogInputModel {
-	name: string,
-	label: string,
+export interface TextAreaDialogInputModel extends DialogInputModel {
 	size: number;
 	texticon: string
 	width: number,

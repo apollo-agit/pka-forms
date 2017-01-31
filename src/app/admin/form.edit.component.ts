@@ -1,11 +1,12 @@
 import { Component, Inject, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
-import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogConfig, MdDialogRef, ComponentType } from '@angular/material';
 import { FluxReducer } from '../common/flux.reducer';
 import { PkaFormModel, FormComponents } from './pka.form.model';
 import { TextInputDialog } from '../elements/textinput/text.input.dialog.component';
 import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
 import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
+import { BaseElementDialog, DialogInputModel } from '../elements/base.element.dialog';
 
 @Component({
   selector: 'form-edit',
@@ -15,107 +16,97 @@ import { OptionListDialog } from '../elements/optionlist/option.list.dialog.comp
 export class FormEditComponent implements AfterViewInit {
 
 	public form : PkaFormModel;
-	
-	textInputDialogRef: MdDialogRef<TextInputDialog>;
-	textAreaDialogRef: MdDialogRef<TextAreaDialog>;
-	checkBoxDialogRef: MdDialogRef<CheckBoxDialog>;
-	optionListDialogRef: MdDialogRef<OptionListDialog>;
+
+	private elementDialog: MdDialogRef<BaseElementDialog>;
 
 	constructor(public dialog: MdDialog,
 		public viewContainerRef: ViewContainerRef,
 		private cd: ChangeDetectorRef,
-		@Inject('PKAFormStore') private _localStoragereducer: FluxReducer<PkaFormModel>) {}
+		@Inject('PKAFormStore') private _localStoragereducer: FluxReducer<PkaFormModel>) {
+
+		if (!this.form) {
+			this.form = { title: "New Form", description: "Description Here",  formComponents: []}
+			this._localStoragereducer.add(this.form);
+		}
+
+		this.config.viewContainerRef = this.viewContainerRef;
+	}
 
 	ngAfterViewInit() {
 
 		this._localStoragereducer.backingObject.subscribe(data => {
 			if (data) {
 				this.form = data[0];
-				this.cd.markForCheck();
 			}
 		});
 
-		if (!this.form) {
-			let newForm = { title: "New Form", description: "Description Here",  formComponents: []}
-			this._localStoragereducer.add(newForm);
-			this.cd.markForCheck();
-		}
+		
+	}
+
+	private findComponent(name: string): FormComponents {
+		let comp = this.form.formComponents.find((value) => {
+			return value.name == name;
+		});
+		return comp;
+	}
+
+	private findComponentIndex(name: string): number {
+		let indx = this.form.formComponents.findIndex((value) => {
+			return value.name == name;
+		});
+		return indx;
+	}
+
+	textInputChange($event) {
+		this.showDialog(TextInputDialog, this.findComponent($event.name));
+	}
+
+	textAreaChange($event) {
+		this.showDialog(TextAreaDialog, this.findComponent($event.name));
+	}
+
+	checkBoxChange($event) {
+		this.showDialog(CheckBoxDialog, this.findComponent($event.name));
+	}
+
+	radioListChange($event) {
+		this.showDialog(OptionListDialog, this.findComponent($event.name));
 	}
 
 	onTextBoxAdd() {
-		let config = new MdDialogConfig();
-    	config.viewContainerRef = this.viewContainerRef;
-    	this.textInputDialogRef = this.dialog.open(TextInputDialog, config);
-    	this.textInputDialogRef.afterClosed().subscribe(result => {
-
-    	if(result) {
-    		let id = result.name.replace(' ', '_');
-    		let comp: FormComponents = {name: id, label: result.label, type: 'text-input', texticon: result.texticon, sequence: 1};
-    		this.form.formComponents.push(comp);
-			this._localStoragereducer.modify(this.form, (value) => {
-				return value;
-			});
-    	}
-
-		    this.textInputDialogRef = null;
-    	});
+  		this.showDialog(TextInputDialog);
 	}
 
 	onTextAreaAdd() {
-		let config = new MdDialogConfig();
-    	config.viewContainerRef = this.viewContainerRef;
-    	this.textAreaDialogRef = this.dialog.open(TextAreaDialog, config);
-    	this.textAreaDialogRef.afterClosed().subscribe(result => {
-
-    	if(result) {
-    		let id = result.name.replace(' ', '_');
-    		let comp: FormComponents = {name: id, label: result.label, 
-    			type: 'text-area', texticon: result.texticon, 
-    			width: result.width, height: result.heigth, sequence: 1};
-    		this.form.formComponents.push(comp);
-			this._localStoragereducer.modify(this.form, (value) => {
-				return value;
-			});
-    	}
-		    this.textAreaDialogRef = null;
-    	});
+		this.showDialog(TextAreaDialog);
 	}
 
 	onCheckBoxGroupAdd() {
-		let config = new MdDialogConfig();
-    	config.viewContainerRef = this.viewContainerRef;
-    	this.checkBoxDialogRef = this.dialog.open(CheckBoxDialog, config);
-    	this.checkBoxDialogRef.afterClosed().subscribe(result => {
-
-    	if(result) {
-    		let id = result.name.replace(' ', '_');
-    		let comp: FormComponents = {name: id, label: result.label, 
-    			type: 'check-box', options: result.options, sequence: 1};
-    		this.form.formComponents.push(comp);
-			this._localStoragereducer.modify(this.form, (value) => {
-				return value;
-			});
-    	}
-		    this.checkBoxDialogRef = null;
-    	});
+		this.showDialog(CheckBoxDialog); 
 	}
 
 	onOptionListGroupAdd() {
-		let config = this.config;
-    	config.viewContainerRef = this.viewContainerRef;
-    	this.optionListDialogRef = this.dialog.open(OptionListDialog, config);
-    	this.optionListDialogRef.afterClosed().subscribe(result => {
+		this.showDialog(OptionListDialog);
+	}
+
+	protected showDialog(type: ComponentType<BaseElementDialog>,
+		currentComp?: FormComponents) {
+
+		this.elementDialog = this.dialog.open(type, this.config);
+		if(currentComp)
+			this.elementDialog.componentInstance.setBackingObject(currentComp);
+    	this.elementDialog.afterClosed().subscribe(result => {
 
     	if(result) {
-    		let id = result.name.replace(' ', '_');
-    		let comp: FormComponents = {name: id, label: result.label, 
-    			type: 'option-list', options: result.options, sequence: 1};
-    		this.form.formComponents.push(comp);
+    		let comp = this.elementDialog.componentInstance.formatComponent(result, currentComp);
+    		if(!currentComp)
+    			this.form.formComponents.push(comp);    		
 			this._localStoragereducer.modify(this.form, (value) => {
 				return value;
 			});
+			this.cd.checkNoChanges();
     	}
-		    this.optionListDialogRef = null;
+		    this.elementDialog = null;
     	});
 	}
 

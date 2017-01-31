@@ -1,24 +1,22 @@
 <div>
-    <form (ngSubmit)="onSubmit()" #checkboxform="ngForm">
-        <div class="form-group">
-            <md-input placeholder="Check Box Group Name" id="name" required class="form-control" name="name" [(ngModel)]="model.name"></md-input>
-        </div>
-        <div class="form-group">
-            <md-input placeholder="Check Box Group Label" id="label" required class="form-control" name="label" [(ngModel)]="model.label"></md-input>
-        </div>
-        <div class="form-group">
-            <md-input placeholder="Add new Checkbox" id="newcheckbox" class="form-control" name="newcheckbox" #newcheckbox></md-input>
-            <button md-mini-fab (click)="onEnter(newcheckbox)">
-                <md-icon>add</md-icon>
-            </button>
-            <ul>
-                <li *ngFor="let opt of model.options">
-                    {{opt}}
-                </li>
-            </ul>
-        </div>
-        <md-dialog-actions>
-            <button md-raised-button type="Submit" name="btnSubmit" class="btn btn-default">Submit</button>
-        </md-dialog-actions>
-    </form>
+    <div class="form-group">
+        <md-input placeholder="Check Box Group Name" id="name" required class="form-control" name="name" [(ngModel)]="model.name"></md-input>
+    </div>
+    <div class="form-group">
+        <md-input placeholder="Check Box Group Label" id="label" required class="form-control" name="label" [(ngModel)]="model.label"></md-input>
+    </div>
+    <div class="form-group">
+        <md-input placeholder="Add new Checkbox" id="newcheckbox" class="form-control" name="newcheckbox" #newcheckbox></md-input>
+        <button md-mini-fab (click)="onEnter(newcheckbox)">
+            <md-icon>add</md-icon>
+        </button>
+        <ul>
+            <li *ngFor="let opt of model.options">
+                {{opt}}
+            </li>
+        </ul>
+    </div>
+    <md-dialog-actions>
+        <button md-raised-button name="btnOk" class="btn btn-default" (click)="onSubmit()">OK</button>
+    </md-dialog-actions>
 </div>

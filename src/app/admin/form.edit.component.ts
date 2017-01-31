@@ -101,7 +101,7 @@ export class FormEditComponent implements AfterViewInit {
 	}
 
 	onOptionListGroupAdd() {
-		let config = new MdDialogConfig();
+		let config = this.config;
     	config.viewContainerRef = this.viewContainerRef;
     	this.optionListDialogRef = this.dialog.open(OptionListDialog, config);
     	this.optionListDialogRef.afterClosed().subscribe(result => {
@@ -118,5 +118,17 @@ export class FormEditComponent implements AfterViewInit {
 		    this.optionListDialogRef = null;
     	});
 	}
+
+	config: MdDialogConfig = {
+    	disableClose: true,
+    	width: '',
+    	height: '',
+    	position: {
+    	  	top: '',
+     		bottom: '',
+      		left: '',
+      		right: ''
+    	}
+  	};
 
 }

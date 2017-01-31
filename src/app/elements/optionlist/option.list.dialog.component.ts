@@ -24,6 +24,7 @@ export class OptionListDialog {
 	}
 
 	onAddOption($event) { 
+		console.log('addOption');
 		if($event.value)
 			this.model.options.push($event.value);
 		$event.value = null;

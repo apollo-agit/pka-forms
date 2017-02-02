@@ -9,7 +9,7 @@ import { BaseElementComponent } from '../base.element.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class TextInputAddComponent extends BaseElementComponent implements OnInit {
+export class TextInputAdd extends BaseElementComponent implements OnInit {
 
 	public icon: string;	
 

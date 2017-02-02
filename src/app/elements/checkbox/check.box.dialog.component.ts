@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { FormComponent } from '../../admin/pka.form.model';
-import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
+import { BaseElementDialog, DialogElementInputModel } from '../base.element.dialog';
 
 
 @Component({
@@ -46,6 +46,6 @@ export class CheckBoxDialog extends BaseElementDialog {
 	}
 }
 
-export interface CheckBoxDialogInputModel extends DialogInputModel {
+export interface CheckBoxDialogInputModel extends DialogElementInputModel {
 	options: Array<string>
 }

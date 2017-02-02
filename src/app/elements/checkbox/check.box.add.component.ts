@@ -9,7 +9,7 @@ import { BaseElementComponent } from '../base.element.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CheckBoxAddComponent extends BaseElementComponent implements OnInit {
+export class CheckBoxAdd extends BaseElementComponent implements OnInit {
 
 	options: Array<String>;
 

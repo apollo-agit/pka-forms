@@ -4,11 +4,11 @@
 */
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminViewComponent } from '../admin/admin.view.component';
+import { AdminView} from '../admin/admin.view.component';
 
 
 const routes: Routes = [
-	{ path: 'admin', component: AdminViewComponent }
+	{ path: 'admin', component: AdminView }
 ]
 
 export const appRoutingProviders: any[] = [];

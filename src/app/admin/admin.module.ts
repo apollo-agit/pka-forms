@@ -3,21 +3,22 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { appRoutes, appRoutingProviders } from '../common/app.routes';
-import { AdminViewComponent } from './admin.view.component';
-import { ElementSelectionComponent } from './element.selection.component';
+import { AdminView } from './admin.view.component';
 import { FluxReducer } from '../common/flux.reducer';
 import { LocalStorageService } from '../common/localstorage.service';
-import { FormEditComponent } from './form.edit.component';
-import { TextInputAddComponent } from '../elements/textinput/text.input.add.component';
-import { OptionListAddComponent } from '../elements/optionlist/option.list.add.component';
-import { TextAreaAddComponent } from '../elements/textarea/text.area.add.component';
-import { CheckBoxAddComponent } from '../elements/checkbox/check.box.add.component';
+import { FormSettings } from './form.settings.component';
+import { FormEdit } from './form.edit.component';
+import { TextInputAdd } from '../elements/textinput/text.input.add.component';
+import { OptionListAdd } from '../elements/optionlist/option.list.add.component';
+import { TextAreaAdd } from '../elements/textarea/text.area.add.component';
+import { CheckBoxAdd } from '../elements/checkbox/check.box.add.component';
 import { TextInputDialog } from '../elements/textinput/text.input.dialog.component';
 import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
 import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
+import { BasicTextDialog } from '../common/basic.text.dialog';
 import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe';
-import { ElementFactory } from  '../elements/element.factory'
+
 
 
 @NgModule({
@@ -28,25 +29,26 @@ import { ElementFactory } from  '../elements/element.factory'
     appRoutes
   ],
   declarations: [
-    AdminViewComponent,
-    ElementSelectionComponent,
-    TextInputAddComponent,
-    OptionListAddComponent,
-    TextAreaAddComponent,
-    CheckBoxAddComponent,
-    FormEditComponent,
+    AdminView,
+    TextInputAdd,
+    OptionListAdd,
+    TextAreaAdd,
+    CheckBoxAdd,
+    FormEdit,
+    FormSettings,
     TextInputDialog,
     TextAreaDialog,
     CheckBoxDialog,
     OptionListDialog,
-    FormComponentSortPipe,
-    ElementFactory
+    BasicTextDialog,
+    FormComponentSortPipe
   ],
     entryComponents: [
       TextInputDialog,
       TextAreaDialog,
       CheckBoxDialog,
-      OptionListDialog
+      OptionListDialog,
+      BasicTextDialog
     ],
   providers: [
     appRoutingProviders,
@@ -54,7 +56,7 @@ import { ElementFactory } from  '../elements/element.factory'
     { provide: 'BackendService', useClass: LocalStorageService },
     { provide: 'PKAFormStore', useClass: FluxReducer }
   ],
-  bootstrap: [ AdminViewComponent ]
+  bootstrap: [ AdminView ]
 })
 
 export class AdminModule { }

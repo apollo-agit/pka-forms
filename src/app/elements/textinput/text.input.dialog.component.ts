@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { FormComponent } from '../../admin/pka.form.model';
-import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
+import { BaseElementDialog, DialogElementInputModel } from '../base.element.dialog';
 
 
 @Component({
@@ -40,7 +40,7 @@ export class TextInputDialog extends BaseElementDialog {
 	}
 }
 
-export interface TextDialogInputModel extends DialogInputModel {
+export interface TextDialogInputModel extends DialogElementInputModel {
 	size: number;
 	texticon: string
 }

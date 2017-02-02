@@ -8,7 +8,7 @@ import { BaseElementComponent } from '../base.element.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class OptionListAddComponent extends BaseElementComponent implements OnInit {
+export class OptionListAdd extends BaseElementComponent implements OnInit {
 
 	options: Array<String>;
 

@@ -1,4 +1,4 @@
-import { Component, Inject, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef, ComponentType } from '@angular/material';
 import { FluxReducer } from '../common/flux.reducer';
 import { PkaFormModel, FormComponent } from './pka.form.model';
@@ -6,7 +6,7 @@ import { TextInputDialog } from '../elements/textinput/text.input.dialog.compone
 import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
 import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
-import { BaseElementDialog, DialogInputModel } from '../elements/base.element.dialog';
+import { BaseElementDialog, DialogElementInputModel } from '../elements/base.element.dialog';
 import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe';
 
 @Component({
@@ -14,7 +14,7 @@ import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe'
   templateUrl: './form.edit.component.html'
 })
 
-export class FormEditComponent implements AfterViewInit {
+export class FormEdit {
 
 	public form : PkaFormModel;
 	public comps: Array<FormComponent>;
@@ -25,16 +25,7 @@ export class FormEditComponent implements AfterViewInit {
 		public viewContainerRef: ViewContainerRef,
 		private cd: ChangeDetectorRef,
 		@Inject('PKAFormStore') private _localStoragereducer: FluxReducer<PkaFormModel>) {
-
-		if (!this.form) {
-			this.form = { title: "New Form", description: "Description Here",  formComponents: []}
-			this._localStoragereducer.add(this.form);
-		}
-
 		this.config.viewContainerRef = this.viewContainerRef;
-	}
-
-	ngAfterViewInit() {
 
 		this._localStoragereducer.backingObject.subscribe(data => {
 			this.comps = null;
@@ -45,8 +36,6 @@ export class FormEditComponent implements AfterViewInit {
 				this.cd.detectChanges();
 			}
 		});
-
-		
 	}
 
 	private findComponent(name: string): FormComponent {

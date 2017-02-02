@@ -3,7 +3,7 @@ import { FormComponent } from '../admin/pka.form.model';
 
 export abstract class BaseElementDialog {
 
-	public model: DialogInputModel;
+	public model: DialogElementInputModel;
 	public dialogRef: MdDialogRef<BaseElementDialog>;
 
 	public icons: Array<string> = new Array<string>('none', 'motorcycle', 
@@ -12,7 +12,7 @@ export abstract class BaseElementDialog {
  		'credit_card');
 
 	constructor(dialogRef: MdDialogRef<BaseElementDialog>,
-		model: DialogInputModel) {
+		model: DialogElementInputModel) {
 		this.dialogRef = dialogRef;
 		this.model = model;
 	}
@@ -34,7 +34,7 @@ export abstract class BaseElementDialog {
 	abstract formatComponent(result, currentComponent?: FormComponent): FormComponent;
 }
 
-export interface DialogInputModel {
+export interface DialogElementInputModel {
 	name: string,
 	label: string
 }

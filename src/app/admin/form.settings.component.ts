@@ -1,5 +1,6 @@
 import { Component, Inject, ViewContainerRef  } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { ColorPickerService } from 'angular2-color-picker';
 import { FluxReducer } from '../common/flux.reducer';
 import { PkaFormModel } from './pka.form.model';
 import { BasicTextDialog, DialogBasicInputModel } from '../common/basic.text.dialog';
@@ -17,6 +18,7 @@ export class FormSettings {
 
 	constructor(public dialog: MdDialog,
 		public viewContainerRef: ViewContainerRef,
+		private cpService: ColorPickerService,
 		@Inject('PKAFormStore') private _localStoragereducer: FluxReducer<PkaFormModel>) {
 
 		this._localStoragereducer.backingObject.subscribe(data => {
@@ -28,7 +30,11 @@ export class FormSettings {
 		this.config.viewContainerRef = this.viewContainerRef;
 	}
 
-
+	onChangeAnyColor($event){
+		this._localStoragereducer.modify(this.form, (value) => {
+			return value;
+		});
+	}
 
 	onClickEditDesc() {
 		this.settingsDialog = this.dialog.open(BasicTextDialog, this.config);

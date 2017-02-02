@@ -4,6 +4,7 @@ import { AbstractModel } from '../common/abstract.model';
 export interface PkaFormModel extends AbstractModel {
 	title: string,
 	description: string, 
+	theme: Theme,
 	formComponents: FormComponent[]
 }
 
@@ -17,4 +18,10 @@ export interface FormComponent {
 	width?: number, 
 	height?: number,
 	options?: Array<string>
+}
+
+export interface Theme {
+	primary: string,
+	secondary: string,
+	accent: string
 }

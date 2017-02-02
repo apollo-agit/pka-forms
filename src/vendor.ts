@@ -22,6 +22,9 @@ import 'immutable';
 //HammerJS
 import 'hammerjs';
 
+//UUID
 import 'angular2-uuid';
+
+import 'angular2-color-picker';
 
 

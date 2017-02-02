@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { ColorPickerModule } from 'angular2-color-picker';
 import { appRoutes, appRoutingProviders } from '../common/app.routes';
 import { AdminView } from './admin.view.component';
 import { FluxReducer } from '../common/flux.reducer';
@@ -26,6 +27,7 @@ import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe'
     BrowserModule,
     FormsModule,
     MaterialModule.forRoot(),
+    ColorPickerModule,
     appRoutes
   ],
   declarations: [

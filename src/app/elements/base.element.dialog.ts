@@ -1,5 +1,5 @@
 import { MdDialogRef } from '@angular/material';
-import { FormComponents } from '../admin/pka.form.model';
+import { FormComponent } from '../admin/pka.form.model';
 
 export abstract class BaseElementDialog {
 
@@ -29,9 +29,9 @@ export abstract class BaseElementDialog {
 		return name.replace(' ', '_');
 	}
 
-	abstract setBackingObject(comp?: FormComponents); 
+	abstract setBackingObject(comp?: FormComponent); 
 
-	abstract formatComponent(result, currentComponent?: FormComponents): FormComponents;
+	abstract formatComponent(result, currentComponent?: FormComponent): FormComponent;
 }
 
 export interface DialogInputModel {

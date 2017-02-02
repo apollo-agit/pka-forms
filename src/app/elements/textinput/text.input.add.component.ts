@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { PkaFormModel } from '../../admin/pka.form.model';
 import { BaseElementComponent } from '../base.element.component';
 
 @Component({
   selector: 'text-input-add',
-  templateUrl: './text.input.add.component.html'
+  templateUrl: './text.input.add.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TextInputAddComponent extends BaseElementComponent implements OnInit {

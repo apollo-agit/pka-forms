@@ -1,11 +1,14 @@
-<md-textarea  placeholder="{{placeholder}}">
+<md-textarea placeholder="{{placeholder}}">
     <span md-prefix>
           <i class="material-icons app-input-icon">{{icon}}</i>
           &nbsp;
         </span>
 </md-textarea>
 <md-card-actions>
-    <button md-mini-fab (click)="onClickEditInput()">
+    <button md-mini-fab (click)="onClickEditElement()">
         <md-icon>{{addbuttonicon}}</md-icon>
+    </button>
+    <button md-mini-fab (click)="onClickRemoveElement()">
+        <md-icon>{{removebuttonicon}}</md-icon>
     </button>
 </md-card-actions>

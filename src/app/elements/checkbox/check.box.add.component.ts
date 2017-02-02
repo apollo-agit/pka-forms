@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { PkaFormModel, FormComponent } from '../../admin/pka.form.model';
 import { BaseElementComponent } from '../base.element.component';
 
 @Component({
   selector: 'check-box-add',
-  templateUrl: './check.box.add.component.html'
+  templateUrl: './check.box.add.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CheckBoxAddComponent extends BaseElementComponent implements OnInit {

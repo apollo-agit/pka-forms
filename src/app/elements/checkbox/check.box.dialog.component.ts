@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { FormComponents } from '../../admin/pka.form.model';
+import { FormComponent } from '../../admin/pka.form.model';
 import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
 
 
@@ -17,12 +17,22 @@ export class CheckBoxDialog extends BaseElementDialog {
 		super(dialogRef, model);
 	}
 
-	formatComponent(result): FormComponents {
-		return {name: this.createId(result.name), label: result.label, 
-    			type: 'check-box', options: result.options, sequence: 1};
+	formatComponent(result, currentComponent: FormComponent): FormComponent {
+		if(!currentComponent)
+			return {name: this.createId(result.name), 
+				label: result.label, 
+    			type: 'check-box', 
+    			options: result.options,
+    			 sequence: 1
+    			};
+    	else {
+    		currentComponent.name = this.createId(result.name);
+    		currentComponent.label = result.label;
+    		currentComponent.options = result.options;
+    	}
 	}
 
-	setBackingObject(comp?: FormComponents) {
+	setBackingObject(comp?: FormComponent) {
 		let model = { name: comp.name, label: comp.label, options: comp.options};
 		this.model = model;
 	}

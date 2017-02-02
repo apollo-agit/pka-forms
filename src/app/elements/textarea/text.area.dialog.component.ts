@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { FormComponents } from '../../admin/pka.form.model';
+import { FormComponent } from '../../admin/pka.form.model';
 import { BaseElementDialog, DialogInputModel } from '../base.element.dialog';
 
 
@@ -17,13 +17,25 @@ export class TextAreaDialog extends BaseElementDialog {
 		super(dialogRef, model);
 	}
 
-	formatComponent(result): FormComponents {
-		return {name: this.createId(result.name), label: result.label, 
-    			type: 'text-area', texticon: result.texticon, 
-    			width: result.width, height: result.heigth, sequence: 1}
+	formatComponent(result, currentComponent: FormComponent): FormComponent {
+		if(!currentComponent)
+		return {name: this.createId(result.name), 
+				label: result.label, 
+    			type: 'text-area', 
+    			texticon: result.texticon, 
+    			width: result.width, 
+    			height: result.heigth, 
+    			sequence: 1}
+    	else  {
+    			currentComponent.name = this.createId(result.name);
+				currentComponent.label = result.label;
+    			currentComponent.texticon = result.texticon;
+    			currentComponent.width = result.width;
+    			currentComponent.height = result.heigth;
+    	}
 	}
 
-	setBackingObject(comp?: FormComponents) {
+	setBackingObject(comp?: FormComponent) {
 		let model = { name: comp.name , label: comp.label, size: comp.size, texticon: comp.texticon,
 			width: comp.width, height: comp.height};
 		this.model = model;

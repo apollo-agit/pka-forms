@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormComponents } from '../../admin/pka.form.model';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormComponent } from '../../admin/pka.form.model';
 import { BaseElementComponent } from '../base.element.component';
 
 @Component({
   selector: 'option-list-add',
-  templateUrl: './option.list.add.component.html'
+  templateUrl: './option.list.add.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class OptionListAddComponent extends BaseElementComponent implements OnInit {

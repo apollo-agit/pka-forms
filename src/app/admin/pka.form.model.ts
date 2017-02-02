@@ -4,10 +4,10 @@ import { AbstractModel } from '../common/abstract.model';
 export interface PkaFormModel extends AbstractModel {
 	title: string,
 	description: string, 
-	formComponents: FormComponents[]
+	formComponents: FormComponent[]
 }
 
-export interface FormComponents {
+export interface FormComponent {
 	sequence: number,
 	name: string,
 	label: string,

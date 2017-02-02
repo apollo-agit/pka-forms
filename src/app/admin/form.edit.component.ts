@@ -1,12 +1,13 @@
 import { Component, Inject, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef, ComponentType } from '@angular/material';
 import { FluxReducer } from '../common/flux.reducer';
-import { PkaFormModel, FormComponents } from './pka.form.model';
+import { PkaFormModel, FormComponent } from './pka.form.model';
 import { TextInputDialog } from '../elements/textinput/text.input.dialog.component';
 import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
 import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
 import { BaseElementDialog, DialogInputModel } from '../elements/base.element.dialog';
+import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe';
 
 @Component({
   selector: 'form-edit',
@@ -16,6 +17,7 @@ import { BaseElementDialog, DialogInputModel } from '../elements/base.element.di
 export class FormEditComponent implements AfterViewInit {
 
 	public form : PkaFormModel;
+	public comps: Array<FormComponent>;
 
 	private elementDialog: MdDialogRef<BaseElementDialog>;
 
@@ -35,15 +37,19 @@ export class FormEditComponent implements AfterViewInit {
 	ngAfterViewInit() {
 
 		this._localStoragereducer.backingObject.subscribe(data => {
+			this.comps = null;
+			this.cd.detectChanges();
 			if (data) {
 				this.form = data[0];
+				this.comps = this.form.formComponents;
+				this.cd.detectChanges();
 			}
 		});
 
 		
 	}
 
-	private findComponent(name: string): FormComponents {
+	private findComponent(name: string): FormComponent {
 		let comp = this.form.formComponents.find((value) => {
 			return value.name == name;
 		});
@@ -57,11 +63,22 @@ export class FormEditComponent implements AfterViewInit {
 		return indx;
 	}
 
+	elementRemove($event) {
+		if($event) {
+			let i = this.findComponentIndex($event.name);		
+			this.form.formComponents.splice(i, 1);
+				this._localStoragereducer.modify(this.form, (value) => {
+				return value;
+			});
+		}
+	}
+
 	textInputChange($event) {
 		this.showDialog(TextInputDialog, this.findComponent($event.name));
 	}
 
 	textAreaChange($event) {
+		console.log("area");
 		this.showDialog(TextAreaDialog, this.findComponent($event.name));
 	}
 
@@ -69,7 +86,7 @@ export class FormEditComponent implements AfterViewInit {
 		this.showDialog(CheckBoxDialog, this.findComponent($event.name));
 	}
 
-	radioListChange($event) {
+	optionListChange($event) {
 		this.showDialog(OptionListDialog, this.findComponent($event.name));
 	}
 
@@ -90,7 +107,7 @@ export class FormEditComponent implements AfterViewInit {
 	}
 
 	protected showDialog(type: ComponentType<BaseElementDialog>,
-		currentComp?: FormComponents) {
+		currentComp?: FormComponent) {
 
 		this.elementDialog = this.dialog.open(type, this.config);
 		if(currentComp)

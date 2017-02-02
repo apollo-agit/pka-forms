@@ -16,6 +16,8 @@ import { TextInputDialog } from '../elements/textinput/text.input.dialog.compone
 import { TextAreaDialog } from '../elements/textarea/text.area.dialog.component';
 import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component';
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
+import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe';
+import { ElementFactory } from  '../elements/element.factory'
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { OptionListDialog } from '../elements/optionlist/option.list.dialog.comp
     TextInputDialog,
     TextAreaDialog,
     CheckBoxDialog,
-    OptionListDialog
+    OptionListDialog,
+    FormComponentSortPipe,
+    ElementFactory
   ],
     entryComponents: [
       TextInputDialog,

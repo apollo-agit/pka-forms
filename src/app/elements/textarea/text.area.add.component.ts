@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { FluxReducer } from '../../common/flux.reducer';
-import { PkaFormModel, FormComponents } from '../../admin/pka.form.model';
+import { PkaFormModel } from '../../admin/pka.form.model';
 import { BaseElementComponent } from '../base.element.component';
 
 @Component({
   selector: 'text-area-add',
-  templateUrl: './text.area.add.component.html'
+  templateUrl: './text.area.add.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TextAreaAddComponent extends BaseElementComponent implements OnInit {
@@ -16,7 +17,6 @@ export class TextAreaAddComponent extends BaseElementComponent implements OnInit
 
 	ngOnInit() {
 		if(this.comp) {
-			console.log(this.comp);
 			this.elementid = this.comp.name;
 			this.placeholder = this.comp.label;
 			this.icon = this.comp.texticon;
@@ -25,9 +25,5 @@ export class TextAreaAddComponent extends BaseElementComponent implements OnInit
 			this.height = this.comp.height;
 		}
 	}		
-
-	onClickEditInput() {
-		
-	}
 
 }

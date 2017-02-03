@@ -1,12 +1,17 @@
 <md-sidenav-layout>
     <md-sidenav #sidenav mode="side" class="app-sidenav">
-        <h3>PKA Form Navigation</h3>
+        <div class="sidenav-header">
+            <span>
+            <h3>PKA Form Navigation</h3>
+            </span>
+        </div>
         <ul>
-            <li><a routerLink="/admin">Application Forms</a></li>
+            <li class="menuitem"><a routerLink="/home">PKA Forms Home</a></li>
+            <li class="menuitem"><a routerLink="/admin">Application Forms</a></li>
         </ul>
     </md-sidenav>
     <md-toolbar color="primary">
-        <button md-fab color="primary" (click)="sidenav.toggle()">
+        <button md-fab color="accent" (click)="sidenav.toggle()">
             <md-icon>menu circle</md-icon>
         </button>
         <h2 class="title">PKA Forms</h2>

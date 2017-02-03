@@ -1,0 +1,13 @@
+// Material Theming
+$primary: md-palette($md-blue);
+$accent:  md-palette($md-blue-grey, A200, A100, A400);
+$warn: md-palette($md-orange);
+$foreground: md-color(md-palette($md-pink));
+$background: md-color(md-palette($md-grey, 200));
+
+$theme: md-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+$primary-base-color: md-color($primary);
+$accent-base-color: md-color($accent);
+$warn-base-color: md-color($warn);

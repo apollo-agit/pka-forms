@@ -4,12 +4,14 @@ import { MaterialModule } from '@angular/material';
 import { MainComponent } from './main.component';
 import { appRoutes, appRoutingProviders } from './common/app.routes';
 import { AdminModule } from './admin/admin.module';
+import { LandingModule } from './landing/landing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
     AdminModule,
+    LandingModule,
     appRoutes
   ],
   declarations: [

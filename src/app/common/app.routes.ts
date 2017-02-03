@@ -5,9 +5,11 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminView} from '../admin/admin.view.component';
+import { LandingView } from '../landing/landing.view.component';
 
 
 const routes: Routes = [
+	{ path: 'home', component: LandingView},
 	{ path: 'admin', component: AdminView }
 ]
 

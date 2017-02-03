@@ -4,7 +4,7 @@ import { PkaFormModel, Theme } from './pka.form.model';
 
 @Component({
   selector: 'form-review',
-  templateUrl: './admin.view.component.html'
+  templateUrl: './form.review.component.html'
 })
 
 export class FormReview {

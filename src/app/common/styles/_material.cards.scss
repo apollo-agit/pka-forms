@@ -1,7 +1,7 @@
 .tool-card {
     padding: 24px;
-    md-card {
-        md-card-header {
+   > md-card {
+     >   md-card-header {
             background: $primary-base-color;
             color: #fff;
             margin: -24px;
@@ -16,6 +16,12 @@
             }
         }
         md-card-content {
+            .form-desc {
+                text-align: center;
+            }
+            .element-label {
+                text-decoration: underline;
+            }
             padding: 48px 0 0 0;
             position: relative;
             ul {
@@ -24,3 +30,5 @@
         }
     }
 }
+
+

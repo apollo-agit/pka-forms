@@ -1,34 +1,38 @@
 <div [ngSwitch]="element.type">
     <div *ngSwitchCase="'text-area'">
-           <md-textarea placeholder="{{element.label}}">
-                <span md-prefix>
-          <i class="material-icons app-input-icon">{{element.icon}}</i>
+        <md-textarea placeholder="{{element.label}}">
+            <span md-prefix>
+          <i class="material-icons app-input-icon">{{element.texticon}}</i>
           &nbsp;
         </span>
-            </md-textarea>
+        </md-textarea>
     </div>
     <div *ngSwitchCase="'text-input'">
-        <md-input #{{element.name}} placeholder="{{element.label}}" maxlength="{{elment.size}}">
+        <md-input #{{element.name}} placeholder="{{element.label}}" maxlength="{{element.size}}">
             <span md-prefix>
-          <i class="material-icons app-input-icon">{{element.icon}}</i>
+          <i class="material-icons app-input-icon">{{element.texticon}}</i>
           &nbsp;
         </span>
         </md-input>
     </div>
-    <div *ngSwitchCase="'options'">
-        <h5>{{element.label}}</h5>
-        <ul>
-            <li class="options-list" *ngFor="let opt of element.options">
-                <md-radio-button name={{element.opt}}>{{element.opt}}</md-radio-button>
-            </li>
-        </ul>
+    <div *ngSwitchCase="'option-list'">
+        <div class="form-element">
+            <h4 class="element-label">{{element.label}}</h4>
+            <ul>
+                <li class="options-list" *ngFor="let opt of element.options">
+                    <md-radio-button name={{opt}}>{{opt}}</md-radio-button>
+                </li>
+            </ul>
+        </div>
     </div>
     <div *ngSwitchCase="'check-box'">
-        <h5>{{element.label}}</h5>
-        <ul>
-            <li class="options-list" *ngFor="let opt of element.options">
-                <md-checkbox name={{element.opt}}>{{element.opt}}</md-checkbox>
-            </li>
-        </ul>
+        <div class="form-element">
+            <h4 class="element-label">{{element.label}}</h4>
+            <ul>
+                <li class="options-list" *ngFor="let opt of element.options">
+                    <md-checkbox name={{opt}}>{{opt}}</md-checkbox>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

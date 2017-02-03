@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectorRef, ViewContainerRef, ChangeDetectionStrategy } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef, ComponentType } from '@angular/material';
 import { FluxReducer } from '../common/flux.reducer';
 import { PkaFormModel, FormComponent } from './pka.form.model';
@@ -14,7 +14,7 @@ import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe'
   templateUrl: './form.edit.component.html'
 })
 
-export class FormEdit {
+export class FormEdit implements OnInit {
 
 	public form : PkaFormModel;
 	public comps: Array<FormComponent>;
@@ -26,14 +26,16 @@ export class FormEdit {
 		private cd: ChangeDetectorRef,
 		@Inject('PKAFormStore') private _localStoragereducer: FluxReducer<PkaFormModel>) {
 		this.config.viewContainerRef = this.viewContainerRef;
+	}
 
+	ngOnInit() {
 		this._localStoragereducer.backingObject.subscribe(data => {
-			this.comps = null;
+		this.comps = null;
+		this.cd.detectChanges();
+		if (data && data.length > 0) {
+			this.form = data[0];
+			this.comps = this.form.formComponents;
 			this.cd.detectChanges();
-			if (data) {
-				this.form = data[0];
-				this.comps = this.form.formComponents;
-				this.cd.detectChanges();
 			}
 		});
 	}

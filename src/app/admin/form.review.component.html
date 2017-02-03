@@ -2,15 +2,15 @@
     <md-card class="md2 md-card">
         <md-card-header>
             <div class="centeredtext">
-                <h2>{{form.title}}</h2>
+                <h2>{{form?.title}}</h2>
             </div>
         </md-card-header>
         <md-card-content>
             <div class="form-desc">
-                <h4>{{form.description}}</h4>
+                <h4>{{form?.description}}</h4>
             </div>
             <div class="form-elements">
-                <div *ngFor="let e of form.formComponents | componentsort">
+                <div *ngFor="let e of form?.formComponents | componentsort">
                    <element-factory [element]="e"></element-factory>
                 </div>
             </div>

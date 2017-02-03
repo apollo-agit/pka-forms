@@ -31,9 +31,11 @@ export class FluxReducer<T extends AbstractModel> {
 		this._store = Immutable.Map<string, T>();
 	}
 
-	public load(): void {
+	public load(callback?): void {
 		this._backendService.read(this.key).subscribe(
 			data => {
+				if(callback)
+					callback(data);
 				this.initialize(data)
 			})		
 	}

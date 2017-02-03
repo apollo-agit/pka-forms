@@ -9,6 +9,7 @@ import { FluxReducer } from '../common/flux.reducer';
 import { LocalStorageService } from '../common/localstorage.service';
 import { FormSettings } from './form.settings.component';
 import { FormEdit } from './form.edit.component';
+import { FormReview } from './form.review.component';
 import { TextInputAdd } from '../elements/textinput/text.input.add.component';
 import { OptionListAdd } from '../elements/optionlist/option.list.add.component';
 import { TextAreaAdd } from '../elements/textarea/text.area.add.component';
@@ -19,6 +20,7 @@ import { CheckBoxDialog } from '../elements/checkbox/check.box.dialog.component'
 import { OptionListDialog } from '../elements/optionlist/option.list.dialog.component';
 import { BasicTextDialog } from '../common/basic.text.dialog';
 import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe';
+import { ElementFactory } from '../elements/element.factory';
 
 
 
@@ -38,11 +40,13 @@ import { FormComponentSortPipe } from '../elements/element.sequence.filter.pipe'
     CheckBoxAdd,
     FormEdit,
     FormSettings,
+    FormReview,
     TextInputDialog,
     TextAreaDialog,
     CheckBoxDialog,
     OptionListDialog,
     BasicTextDialog,
+    ElementFactory,
     FormComponentSortPipe
   ],
     entryComponents: [

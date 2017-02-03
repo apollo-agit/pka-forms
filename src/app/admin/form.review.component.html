@@ -1,0 +1,21 @@
+<div class="tool-card">
+    <md-card class="md2 md-card">
+        <md-card-header>
+            <div class="centeredtext">
+                <h3>{{form.title}}</h3>
+            </div>
+        </md-card-header>
+        <md-card-content>
+            <div class="form-desc">
+                <h5>{{form.description}}</h5>
+            </div>
+            <div class="form-elements">
+                <div *ngFor="let element of comps | componentsort">
+                    <div [ngSwitch]="element.type">
+                        
+                    </div>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

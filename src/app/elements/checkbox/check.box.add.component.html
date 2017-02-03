@@ -6,8 +6,8 @@
         <md-card-content>
             <h5>{{placeholder}}</h5>
             <ul>
-                <li *ngFor="let opt of options">
-                    <md-checkbox>{{opt}}</md-checkbox>
+                <li class="options-list" *ngFor="let opt of options">
+                    <md-checkbox name={opt}}>{{opt}}</md-checkbox>
                 </li>
             </ul>
         </md-card-content>

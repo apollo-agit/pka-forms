@@ -63,7 +63,6 @@ export class FormSettings {
     	});
 	}
 
-	
 	config: MdDialogConfig = {
     	disableClose: true,
     	width: '',

@@ -1,26 +1,44 @@
-<md-card class="md2 md-card element-card">
-    <h2>{{form?.title}}</h2>
-    <button md-mini-fab (click)="onClickEditTitle()">
-        <md-icon>edit circle</md-icon>
-    </button>
-    <h4>{{form?.description}}</h4>
-    <button md-mini-fab (click)="onClickEditDesc()">
-        <md-icon>edit circle</md-icon>
-    </button>
-</md-card>
-<md-card>
-    <div class="color-picker-container">
-        <div class="form-group">
-            Primary:
-            <input [colorPicker]="form.theme.primary" (colorPickerChange)="form.theme.primary=$event" [style.background]="form.theme.primary" [value]="form.theme.primary" (colorPickerChange)="onChangeAnyColor($event);form.theme.primary=$event">
-        </div>
-        <div class="form-group">
-            Secondary:
-             <input [colorPicker]="form.theme.secondary" (colorPickerChange)="form.theme.secondary=$event" [style.background]="form.theme.secondary" [value]="form.theme.secondary" (colorPickerChange)="onChangeAnyColor($event);form.theme.secondary=$event">
-        </div>
-        <div class="form-group">
-            Accent:
-             <input [colorPicker]="form.theme.accent" (colorPickerChange)="form.theme.accent=$event" [style.background]="form.theme.accent" [value]="form.theme.accent" (colorPickerChange)="onChangeAnyColor($event);form.theme.accent=$event">
-        </div>
-    </div>
-</md-card>
+<div class="tool-card">
+    <md-card class="md2 md-card">
+        <md-card-header>
+            <div class="centeredtext">
+                <h4>Title and Desciption</h4>
+            </div>
+        </md-card-header>
+        <md-card-content>
+            <h2>{{form?.title}}</h2>
+            <button md-mini-fab (click)="onClickEditTitle()">
+                <md-icon>edit circle</md-icon>
+            </button>
+            <h4>{{form?.description}}</h4>
+            <button md-mini-fab (click)="onClickEditDesc()">
+                <md-icon>edit circle</md-icon>
+            </button>
+        </md-card-content>
+    </md-card>
+</div>
+<div class="tool-card">
+    <md-card class="md2 md-card">
+        <md-card-header>
+            <div class="centeredtext">
+                <h4>Title and Desciption</h4>
+            </div>
+        </md-card-header>
+        <md-card-content>
+            <div class="color-picker-container">
+                <div class="form-group">
+                    Primary:
+                    <input [colorPicker]="form.theme.primary" (colorPickerChange)="form.theme.primary=$event" [style.background]="form.theme.primary" [value]="form.theme.primary" (colorPickerChange)="onChangeAnyColor($event);form.theme.primary=$event">
+                </div>
+                <div class="form-group">
+                    Secondary:
+                    <input [colorPicker]="form.theme.secondary" (colorPickerChange)="form.theme.secondary=$event" [style.background]="form.theme.secondary" [value]="form.theme.secondary" (colorPickerChange)="onChangeAnyColor($event);form.theme.secondary=$event">
+                </div>
+                <div class="form-group">
+                    Accent:
+                    <input [colorPicker]="form.theme.accent" (colorPickerChange)="form.theme.accent=$event" [style.background]="form.theme.accent" [value]="form.theme.accent" (colorPickerChange)="onChangeAnyColor($event);form.theme.accent=$event">
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

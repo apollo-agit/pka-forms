@@ -1,0 +1,34 @@
+<div [ngSwitch]="element.type">
+    <div *ngSwitchCase="'text-area'">
+           <md-textarea placeholder="{{element.label}}">
+                <span md-prefix>
+          <i class="material-icons app-input-icon">{{element.icon}}</i>
+          &nbsp;
+        </span>
+            </md-textarea>
+    </div>
+    <div *ngSwitchCase="'text-input'">
+        <md-input #{{element.name}} placeholder="{{element.label}}" maxlength="{{elment.size}}">
+            <span md-prefix>
+          <i class="material-icons app-input-icon">{{element.icon}}</i>
+          &nbsp;
+        </span>
+        </md-input>
+    </div>
+    <div *ngSwitchCase="'options'">
+        <h5>{{element.label}}</h5>
+        <ul>
+            <li class="options-list" *ngFor="let opt of element.options">
+                <md-radio-button name={{element.opt}}>{{element.opt}}</md-radio-button>
+            </li>
+        </ul>
+    </div>
+    <div *ngSwitchCase="'check-box'">
+        <h5>{{element.label}}</h5>
+        <ul>
+            <li class="options-list" *ngFor="let opt of element.options">
+                <md-checkbox name={{element.opt}}>{{element.opt}}</md-checkbox>
+            </li>
+        </ul>
+    </div>
+</div>

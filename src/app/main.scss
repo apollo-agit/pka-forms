@@ -3,14 +3,16 @@
 */
 
 @import '~@angular/material/core/theming/all-theme';
-@import './common/style.variables';
-@import './common/material.theme';
+@import './common/styles/style.variables';
+@import './common/styles/material.theme';
+@import './common/styles/toolbar';
+@import './common/styles/app.page';
+@import './common/styles/material.cards';
 @import '~@angular/material/toolbar/toolbar.scss';
 @import '~@angular/material/button/button.scss';
 @import '~@angular/material/card/card.scss';
 @import '~@angular/material/grid-list/grid-list.scss';
 @import './admin/admin.component';
-@import './landing/landing.component';
 @include md-core();
 md-toolbar {
     -moz-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
@@ -33,54 +35,6 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-md-toolbar-row {
-    margin: 8px;
-}
-
-.title {
-    padding-left: 8px;
-}
-
 .app-content {
     min-height: 500px;
-}
-
-.app-toolbar-menu {
-    padding: 0 14px 0 14px;
-    color: white;
-}
-
-ul {
-    list-style-type: none;
-}
-
-li.menuitem {
-    padding: 16px 0 0 0;
-}
-
-.app-sidenav {
-    background: $primary-base-color;
-    min-width: 100px;
-    min-height: 300px;
-    a:link,
-    a:visited {
-        color: #fff;
-    }
-    .sidenav-header {
-        span {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        color: $primary-base-color;
-        min-height: 70px;
-        background: $accent-base-color;
-        padding: 8px;
-    }
-}
-
-.page-title {
-    text-align: center;
-    color: $primary-base-color;
-    padding: 8px;
-    margin: 0;
 }

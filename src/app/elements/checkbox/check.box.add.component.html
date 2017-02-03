@@ -1,14 +1,23 @@
-<h6>{{placeholder}}</h6>
-<ul>
-    <li *ngFor="let opt of options">
-        <md-checkbox>{{opt}}</md-checkbox>
-    </li>
-</ul>
-<md-card-actions>
-    <button md-mini-fab (click)="onClickEditElement()">
-        <md-icon>{{addbuttonicon}}</md-icon>
-    </button>
-    <button md-mini-fab (click)="onClickRemoveElement()">
-        <md-icon>{{removebuttonicon}}</md-icon>
-    </button>
-</md-card-actions>
+<div class="tool-card">
+    <md-card class="md2 md-card">
+        <md-card-header>
+            <h4>{{comptitle}}</h4>
+        </md-card-header>
+        <md-card-content>
+            <h5>{{placeholder}}</h5>
+            <ul>
+                <li *ngFor="let opt of options">
+                    <md-checkbox>{{opt}}</md-checkbox>
+                </li>
+            </ul>
+        </md-card-content>
+        <md-card-actions>
+            <button md-mini-fab (click)="onClickEditElement()">
+                <md-icon>{{addbuttonicon}}</md-icon>
+            </button>
+            <button md-mini-fab (click)="onClickRemoveElement()">
+                <md-icon>{{removebuttonicon}}</md-icon>
+            </button>
+        </md-card-actions>
+    </md-card>
+</div>

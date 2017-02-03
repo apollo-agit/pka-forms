@@ -12,6 +12,8 @@ export class OptionListAdd extends BaseElementComponent implements OnInit {
 
 	options: Array<String>;
 
+	public readonly comptitle: string = "Stand Option Radio Buttons";
+
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;

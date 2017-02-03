@@ -13,6 +13,8 @@ export class TextInputAdd extends BaseElementComponent implements OnInit {
 
 	public icon: string;	
 
+	public readonly comptitle: string = "Stand Input Text Box";
+
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;

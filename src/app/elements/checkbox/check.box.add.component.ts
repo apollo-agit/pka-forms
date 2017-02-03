@@ -13,6 +13,8 @@ export class CheckBoxAdd extends BaseElementComponent implements OnInit {
 
 	options: Array<String>;
 
+	public readonly comptitle: string = "Stand Check Box Group";
+
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;

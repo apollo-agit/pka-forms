@@ -1,0 +1,25 @@
+.tool-card {
+    padding: 24px;
+    max-width: 600px;
+    md-card {
+        md-card-header {
+            background: $primary-base-color;
+            color: #fff;
+            margin: -24px;
+            padding: 8px;
+            position: relative;
+            .md-card-header-text {
+                h4 {
+                    text-align: center;
+                }
+            }
+        }
+        md-card-content {
+            padding: 48px 0 0 0;
+            position: relative;
+            ul {
+                list-style-type: none;
+            }
+        }
+    }
+}

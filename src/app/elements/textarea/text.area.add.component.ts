@@ -15,6 +15,8 @@ export class TextAreaAdd extends BaseElementComponent implements OnInit {
 	public width: number;
 	public height: number;
 
+	public readonly comptitle: string = "Stand Input Text Area";
+
 	ngOnInit() {
 		if(this.comp) {
 			this.elementid = this.comp.name;

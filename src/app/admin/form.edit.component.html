@@ -20,14 +20,10 @@
     </button>
 </md-menu>
 <div *ngFor="let element of comps | componentsort">
-    <md-card class="md2 md-card element-card">
-        <md-card-content>
-            <div [ngSwitch]="element.type">
-                <text-area-add *ngSwitchCase="'text-area'" [comp]="element" (change)="textAreaChange($event)" (remove)="elementRemove($event)"></text-area-add>
-                <text-input-add *ngSwitchCase="'text-input'" [comp]="element" (change)="textInputChange($event)" (remove)="elementRemove($event)"></text-input-add>
-                <option-list-add *ngSwitchCase=" 'option-list' " [comp]="element " (change)="optionListChange($event)"  (remove)="elementRemove($event)"></option-list-add>
-                <check-box-add *ngSwitchCase=" 'check-box' " [comp]="element" (change)="checkBoxChange($event)" (remove)="elementRemove($event)"></check-box-add>
-            </div>
-        </md-card-content>
-    </md-card>
+    <div [ngSwitch]="element.type">
+        <text-area-add *ngSwitchCase="'text-area'" [comp]="element" (change)="textAreaChange($event)" (remove)="elementRemove($event)"></text-area-add>
+        <text-input-add *ngSwitchCase="'text-input'" [comp]="element" (change)="textInputChange($event)" (remove)="elementRemove($event)"></text-input-add>
+        <option-list-add *ngSwitchCase=" 'option-list' " [comp]="element " (change)="optionListChange($event)" (remove)="elementRemove($event)"></option-list-add>
+        <check-box-add *ngSwitchCase=" 'check-box' " [comp]="element" (change)="checkBoxChange($event)" (remove)="elementRemove($event)"></check-box-add>
+    </div>
 </div>

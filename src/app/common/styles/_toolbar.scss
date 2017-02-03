@@ -1,0 +1,37 @@
+.app-toolbar-menu {
+    padding: 0 14px 0 14px;
+    color: white;
+}
+
+md-toolbar-row {
+    margin: 8px;
+    .title {
+        padding-left: 8px;
+    }
+}
+
+.app-sidenav {
+    background: $primary-base-color;
+    min-width: 100px;
+    min-height: 300px;
+    a:link,
+    a:visited {
+        color: #fff;
+    }
+    ul {
+        list-style-type: none;
+        li.menuitem {
+            padding: 16px 0 0 0;
+        }
+    }
+    .sidenav-header {
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        color: $primary-base-color;
+        min-height: 70px;
+        background: $accent-base-color;
+        padding: 8px;
+    }
+}

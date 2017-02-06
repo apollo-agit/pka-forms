@@ -9,7 +9,6 @@ import { LandingView } from '../landing/landing.view.component';
 
 
 const routes: Routes = [
-    { path: '', component: LandingView},
 	{ path: 'home', component: LandingView},
 	{ path: 'admin', component: AdminView }
 ]
